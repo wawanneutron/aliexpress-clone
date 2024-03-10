@@ -153,9 +153,22 @@
             </div>
           </button>
         </NuxtLink>
+
+        <button
+          @click="userStore.isMenuOverlay = false"
+          class="md:hidden block rounded-full p-1.5 -mt-[4px] hover:bg-gray-200"
+        >
+          <Icon name="mdi:menu" size="33" />
+        </button>
       </div>
     </div>
   </div>
+
+  <Loading v-if="userStore.isLoading" />
+
+  <div class="lg:pt-[150px] md:pt-[130px] pt-[80px]" />
+  <slot />
+  <Footer v-if="!userStore.isLoading" />
 </template>
 
 <script setup>
@@ -163,4 +176,6 @@ let isAccountMenu = ref(false)
 let isCartHover = ref(false)
 let isSearching = ref(true)
 let searchItem = ref('')
+
+let userStore = ref({ isLoading: false })
 </script>
