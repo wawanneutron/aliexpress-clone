@@ -172,10 +172,11 @@
 </template>
 
 <script setup>
+import { useUserStore } from '@/stores/user'
+const userStore = useUserStore()
+
 let isAccountMenu = ref(false)
 let isCartHover = ref(false)
 let isSearching = ref(true)
 let searchItem = ref('')
-
-let userStore = ref({ isLoading: false })
 </script>
