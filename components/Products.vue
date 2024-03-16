@@ -2,7 +2,7 @@
   <div
     class="bg-white m-1.5 inline-block rounded hover:shadow-[0_0_10px_3px_rgba(0,0,0,0.15)] cusrsor-pointer"
   >
-    <NuxtLink :to="`/item/${product.id}`">
+    <NuxtLink :to="`/product-detail/${product.id}`">
       <img :src="product.url" :alt="product.title" />
 
       <div id="ProductDetail" class="flex flex-col justify-between h-[140px]">
