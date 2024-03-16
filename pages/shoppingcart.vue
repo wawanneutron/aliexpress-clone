@@ -143,11 +143,20 @@ const selectedRadioFunc = (val) => {
       selectedArray.value.splice(index, 1)
     }
   })
-
-  console.log(selectedArray.value)
 }
 
 const goToCheckout = () => {
-  alert('checkout')
+  let ids = []
+  userStore.checkout = []
+
+  selectedArray.value.forEach((item) => ids.push(item.id))
+
+  let res = userStore.cart.filter((item) => {
+    return ids.indexOf(item.id) !== -1
+  })
+
+  res.forEach((item) => userStore.checkout.push(toRaw(item)))
+
+  return navigateTo('/checkout')
 }
 </script>
