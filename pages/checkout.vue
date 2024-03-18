@@ -188,6 +188,12 @@ const goToCheckout = () => {
 }
 
 const pay = () => {
-  //
+  isProcessing.value = true
+  userStore.isLoading = true
+
+  setTimeout(() => {
+    isProcessing.value = false
+    userStore.isLoading = false
+  }, 2000)
 }
 </script>

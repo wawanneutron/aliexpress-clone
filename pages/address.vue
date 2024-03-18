@@ -17,7 +17,7 @@
             placeholder="Address"
             v-model:input="address"
             inputType="text"
-            :error="error && error.type == 'contactName' ? error.message : ''"
+            :error="error && error.type == 'address' ? error.message : ''"
           />
 
           <TextInput
@@ -25,7 +25,7 @@
             placeholder="Zip Code"
             v-model:input="zipCode"
             inputType="text"
-            :error="error && error.type == 'contactName' ? error.message : ''"
+            :error="error && error.type == 'zipCode' ? error.message : ''"
           />
 
           <TextInput
@@ -33,7 +33,7 @@
             placeholder="City"
             v-model:input="city"
             inputType="text"
-            :error="error && error.type == 'contactName' ? error.message : ''"
+            :error="error && error.type == 'city' ? error.message : ''"
           />
 
           <TextInput
@@ -41,7 +41,7 @@
             placeholder="Country"
             v-model:input="country"
             inputType="text"
-            :error="error && error.type == 'contactName' ? error.message : ''"
+            :error="error && error.type == 'country' ? error.message : ''"
           />
 
           <button
@@ -75,7 +75,10 @@ let isWorking = ref(false)
 let error = ref(null)
 
 watchEffect(() => {
-  userStore.isLoading = false
+  userStore.isLoading = true
+  setTimeout(() => {
+    userStore.isLoading = false
+  }, 2000)
 })
 
 const submit = async () => {
@@ -89,8 +92,18 @@ const submit = async () => {
     }
   } else if (!address.value) {
     error.value = {
-      type: 'addaress',
-      message: 'A addaress is required'
+      type: 'address',
+      message: 'A address is required'
+    }
+  } else if (!zipCode.value) {
+    error.value = {
+      type: 'zipCode',
+      message: 'A zipCode is required'
+    }
+  } else if (!city.value) {
+    error.value = {
+      type: 'city',
+      message: 'A city is required'
     }
   } else if (!country.value) {
     error.value = {
