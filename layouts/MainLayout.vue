@@ -155,7 +155,7 @@
         </NuxtLink>
 
         <button
-          @click="userStore.isMenuOverlay = false"
+          @click="userStore.isMenuOverlay = true"
           class="md:hidden block rounded-full p-1.5 -mt-[4px] hover:bg-gray-200"
         >
           <Icon name="mdi:menu" size="33" />
