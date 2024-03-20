@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "prisma": {
-    "seed": "mode prisma/seed.js"
+    "seed": "node prisma/seed.js"
   },
   "dependencies": {
     "@nuxtjs/supabase": "^1.1.7",
